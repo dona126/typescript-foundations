@@ -179,4 +179,35 @@ const emp: Employee = {
 }
 
 
+//.....................................................
+//Functionns
+// TypeScript — must type params + return type
+function add(a: number, b: number): number {
+  return a + b;
+}
+console.log(add(5, 3));   // 8
+
+// optional — may or may not pass
+function greet(name: string, role?: string): string {
+  return `Hello ${name} ${role ?? ""}`; //May or may not pass the value. If not passed → role is undefined. 
+  // ?? "" handles that → shows empty string instead of undefined
+}
+console.log(greet("Don"));           // Hello Don
+console.log(greet("Don", "SDET"));   // Hello Don SDET
+
+// default — uses default if not passed
+function greetDefault(name: string, role: string = "SDET"): string {
+  return `Hello ${name}, role: ${role}`;
+}
+console.log(greetDefault("Don"));           // Hello Don, role: SDET
+console.log(greetDefault("Don", "Lead"));   // Hello Don, role: Lead
+
+//arrow fn
+const greet = (
+  name: string
+): string => name;
+
+//.....................................................
+
+
 

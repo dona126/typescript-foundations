@@ -8,7 +8,7 @@ console.log("browsers:", browsers);
 console.log("scores:", scores);
 
 // ── 2. Tuple — const ───────────────────────
-const userInfo: [string, number] = ["dona", 25];
+const userInfo: [string, number] = ["don", 25];
 userInfo[1] = 26;         // ✅ value change allowed
 // userInfo[2] = 100;     // ❌ wrong length
 // userInfo[1] = "hello"; // ❌ wrong type
