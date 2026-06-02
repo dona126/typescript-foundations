@@ -76,3 +76,12 @@ class Dog3 extends Animal3 {
 
 const d3 = new Dog3("Bruno");
 Animal.prototype.speak.call(d3);// parent speak() alone called
+
+
+
+//Generics in array
+console.log("\nGenerics:\n")
+function getFirst<T>(array1: T[]): T | undefined { //array can be empty too ...so | undefined used
+   return array1[0];
+}
+console.log(getFirst<string>(["abel", "ben", "clara"])) // returns "a"

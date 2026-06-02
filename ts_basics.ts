@@ -179,6 +179,9 @@ const emp: Employee = {
 }
 
 
+
+
+
 //.....................................................
 //Functionns
 // TypeScript — must type params + return type
@@ -203,11 +206,77 @@ console.log(greetDefault("Don"));           // Hello Don, role: SDET
 console.log(greetDefault("Don", "Lead"));   // Hello Don, role: Lead
 
 //arrow fn
-const greet = (
+const greet5 = (
   name: string
 ): string => name;
 
+
+
+
+
 //.....................................................
+//Generics
+function identity<T>(arg: T): T {
+  return arg;
+}
+identity<string>("hello")   // ✅ string
+identity<number>(42)        // ✅ number
+
+
+function getFirst<T>(arr: T[]): T {
+  return arr[0];
+}
+getFirst<string>(["a", "b", "c"])  // returns "a"
+
+
+class Box<T> {
+  value: T;
+  constructor(val: T) { this.value = val; }
+}
+const box = new Box<number>(99);
+
+
+
+
+
+//.....................................................
+//Intersection Types
+type User67 = { name: string; email: string };
+type AdminExtra = { role: string; permissions: string[] };
+
+type Admin = User67 & AdminExtra;
+
+const admin: Admin = {
+  name: "Dona",
+  email: "dona@test.com",
+  role: "superadmin",
+  permissions: ["read", "write"]
+};
+
+
+
+
+
+//.....................................................
+//any / unknown / never
+// any — dangerous
+let x: any = "hello";
+x.toFixed(2);  // no error, but will crash at runtime
+
+// unknown — safe
+let y: unknown = "hello";
+if (typeof y === "string") {
+  console.log(y.toUpperCase());  // ✅ only works after check
+}
+
+// never
+function crash(msg: string): never {
+  throw new Error(msg);  // never returns
+}
+
+
+
+
 
 
 
